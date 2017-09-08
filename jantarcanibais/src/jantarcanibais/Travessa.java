@@ -18,7 +18,8 @@ public class Travessa {
     }
 
     /* Chamado pelo cozinheiro. */
-    public void enchetravessa(){
+    public void enchetravessa(int por){
+        porcoes = por;
         
         //sincronização para encher a travessa.
         

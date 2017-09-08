@@ -3,6 +3,8 @@
 
 package jantarcanibais;
 
+import java.util.concurrent.Semaphore;
+
 public class JantarCanibais {
 
     public static void main(String[] args) throws InterruptedException {
@@ -11,16 +13,24 @@ public class JantarCanibais {
         int num_canibais = 5;
         int num_porcoes = 5;
         int tempo_execucao = 30; /* em segundos */
+        
+        Semaphore mutex1 = new Semaphore(1);
+        Semaphore mutex2 = new Semaphore(0);
+        Semaphore mutex3 = new Semaphore(0);
+        Semaphore mutex4 = new Semaphore(0);
+        
+        
 
         Travessa travessa = new Travessa(num_porcoes);
+        
 
         /* Dispara thread Cozinheiro */
-        Thread cozinheiro = new Thread(new Cozinheiro(travessa));
+        Thread cozinheiro = new Thread(new Cozinheiro(travessa, mutex1, mutex2));
         cozinheiro.start();
         
         /* Dispara threads Cabinais. */
         for(i=0; i<num_canibais; i++){
-            Thread canibal = new Thread(new Canibal(travessa, i));
+            Thread canibal = new Thread(new Canibal(travessa, i, mutex2, mutex3));
             canibal.start();
         }
         

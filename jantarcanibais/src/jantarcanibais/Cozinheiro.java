@@ -5,6 +5,7 @@
  */
 package jantarcanibais;
 
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,19 +13,20 @@ import java.util.logging.Logger;
  *
  * @author sumatra
  */
-public class Cozinheiro implements Runnable{
-    private final Travessa travessa;
-    
-    Cozinheiro(Travessa t){
-        travessa = t;
-    }
-    
-   
-    @Override
-    public void run() {
-        while(true){
-                travessa.enchetravessa();
-        }
-    }
-    
+public class Cozinheiro implements Runnable {
+	Semaphore local, dependente;
+	
+	private final Travessa travessa;
+
+	Cozinheiro(Travessa t, Semaphore m1, Semaphore m2) {
+		travessa = t;
+	}
+
+	@Override
+	public void run() {
+		while (true) {
+			travessa.enchetravessa(5);
+		}
+	}
+
 }
