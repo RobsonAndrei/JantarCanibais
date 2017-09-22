@@ -16,6 +16,9 @@ public class Travessa {
         //sincronização para se servir.
         return true;
     }
+    public int getPorcoes() {
+    	return porcoes;
+    }
 
     /* Chamado pelo cozinheiro. */
     public void enchetravessa(int por){

@@ -25,7 +25,7 @@ public class Cozinheiro implements Runnable {
 	@Override
 	public void run() {
 		while (true) {
-			travessa.enchetravessa(5);
+			travessa.enchetravessa(travessa.getPorcoes());
 		}
 	}
 
