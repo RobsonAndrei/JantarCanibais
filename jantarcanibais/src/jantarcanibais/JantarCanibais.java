@@ -31,6 +31,7 @@ public class JantarCanibais {
         /* Dispara threads Cabinais. */
         for(i=0; i<num_canibais; i++){
             Thread canibal = new Thread(new Canibal(travessa, i, mutex2, mutex3));
+            
             canibal.start();
         }
         

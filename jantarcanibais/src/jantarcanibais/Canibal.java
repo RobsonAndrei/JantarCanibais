@@ -19,6 +19,12 @@ public class Canibal implements Runnable{
     public void run() {
         while(true){
             //aqui o canibal faz suas ações: servir-se, comer...
+        	try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             travessa.seserve();
         }
         

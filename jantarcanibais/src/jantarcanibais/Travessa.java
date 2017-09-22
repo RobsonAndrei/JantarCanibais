@@ -27,6 +27,21 @@ public class Travessa {
         //sincronização para encher a travessa.
         
     }
+    public void se_serve() {
+    		if(isEmpty()!=true) {
+    			porcoes--;
+    		}else {
+    			System.out.println("Travessa vazia -- Acordar Cozinheiro!!!!!");
+    		}
+    }
+    
+    public boolean isEmpty() {
+    	if(porcoes!=0)
+    		return false;
+    	
+    return true;
+    }
+    
 }
     
     
